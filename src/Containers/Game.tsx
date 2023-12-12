@@ -131,9 +131,11 @@ const Game = ({
         <Button
           title={'Start Game'}
           cb={async () => {
-            return new Promise(resolve => {
-              return resolve(computerLight());
-            });
+            if (memory.length === 0) {
+              return new Promise(resolve => {
+                return resolve(computerLight());
+              });
+            }
           }}
           color={Colors.SIMON_PINK}
         />
